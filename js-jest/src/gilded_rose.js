@@ -12,11 +12,12 @@ class Shop {
   }
   updateQuality() {
     this.items.map(({ name, quality, sellIn }) => {
-      if (
+      const isMainItem =
         name !== 'Aged Brie' &&
         name !== 'Backstage passes to a TAFKAL80ETC concert' &&
-        name !== 'Sulfuras, Hand of Ragnaros'
-      ) {
+        name !== 'Sulfuras, Hand of Ragnaros';
+
+      if (isMainItem) {
         if (quality > 0) {
           quality -= 1;
         }
@@ -37,11 +38,7 @@ class Shop {
         sellIn -= 1;
       }
       if (sellIn < 0) {
-        if (
-          name !== 'Aged Brie' &&
-          name !== 'Backstage passes to a TAFKAL80ETC concert' &&
-          name !== 'Sulfuras, Hand of Ragnaros'
-        ) {
+        if (isMainItem) {
           if (quality > 0) {
             quality -= 1;
           }
