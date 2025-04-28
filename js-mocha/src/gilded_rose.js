@@ -43,40 +43,41 @@ class Shop {
 
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
-      const itemName = this.items[i].name;
+      const item = item;
+      const itemName = item.name;
 
       if (itemNotBelongToAgedBrie(itemName) && itemName != 'Backstage passes to a TAFKAL80ETC concert') {
-        this.itemQualityAvailable(items[i]);
+        this.itemQualityAvailable(item);
       } else {
-        if (this.items[i].quality < 50) {
-          this.increaseItemQuality(this.items[i]);
+        if (item.quality < 50) {
+          this.increaseItemQuality(item);
           if (itemName == 'Backstage passes to a TAFKAL80ETC concert') {
-            if (this.items[i].sellIn < 11) {
-              if (this.items[i].quality < 50) {
-                this.increaseItemQuality(this.items[i]);
+            if (item.sellIn < 11) {
+              if (item.quality < 50) {
+                this.increaseItemQuality(item);
               }
             }
-            if (this.items[i].sellIn < 6) {
-              if (this.items[i].quality < 50) {
-                this.increaseItemQuality(this.items[i]);
+            if (item.sellIn < 6) {
+              if (item.quality < 50) {
+                this.increaseItemQuality(item);
               }
             }
           }
         }
       }
       if (this.itemNotBelongToSulfuras(itemName)) {
-        this.items[i].sellIn = this.items[i].sellIn - 1;
+        item.sellIn = item.sellIn - 1;
       }
-      if (this.items[i].sellIn < 0) {
+      if (item.sellIn < 0) {
         if (this.itemNotBelongToAgedBrie(itemName)) {
           if (itemName != 'Backstage passes to a TAFKAL80ETC concert') {
-            this.itemQualityAvailable(items[i]);
+            this.itemQualityAvailable(item);
           } else {
-            this.items[i].quality = this.items[i].quality - this.items[i].quality;
+            item.quality = item.quality - item.quality;
           }
         } else {
-          if (this.items[i].quality < 50) {
-            this.increaseItemQuality(this.items[i]);
+          if (item.quality < 50) {
+            this.increaseItemQuality(item);
           }
         }
       }
