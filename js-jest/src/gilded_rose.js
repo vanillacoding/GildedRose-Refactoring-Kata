@@ -11,44 +11,44 @@ class Shop {
     this.items = items;
   }
   updateQuality() {
-    this.items.map((item) => {
+    this.items.map(({ name, quality, sellIn }) => {
       if (
-        item.name !== 'Aged Brie' &&
-        item.name !== 'Backstage passes to a TAFKAL80ETC concert'
+        name !== 'Aged Brie' &&
+        name !== 'Backstage passes to a TAFKAL80ETC concert'
       ) {
-        if (item.quality > 0 && item.name !== 'Sulfuras, Hand of Ragnaros') {
-          item.quality -= 1;
+        if (quality > 0 && name !== 'Sulfuras, Hand of Ragnaros') {
+          quality -= 1;
         }
       } else {
-        if (item.quality < 50) {
-          item.quality += 1;
-          if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
-            if (item.sellIn < 11 && item.quality < 50) {
-              item.quality += 1;
+        if (quality < 50) {
+          quality += 1;
+          if (name === 'Backstage passes to a TAFKAL80ETC concert') {
+            if (sellIn < 11 && quality < 50) {
+              quality += 1;
             }
-            if (item.sellIn < 6 && item.quality < 50) {
-              item.quality += 1;
+            if (sellIn < 6 && quality < 50) {
+              quality += 1;
             }
           }
         }
       }
-      if (item.name !== 'Sulfuras, Hand of Ragnaros') {
-        item.sellIn -= 1;
+      if (name !== 'Sulfuras, Hand of Ragnaros') {
+        sellIn -= 1;
       }
-      if (item.sellIn < 0) {
-        if (item.name !== 'Aged Brie') {
-          if (item.name !== 'Backstage passes to a TAFKAL80ETC concert') {
-            if (item.quality > 0) {
-              if (item.name !== 'Sulfuras, Hand of Ragnaros') {
-                item.quality -= 1;
+      if (sellIn < 0) {
+        if (name !== 'Aged Brie') {
+          if (name !== 'Backstage passes to a TAFKAL80ETC concert') {
+            if (quality > 0) {
+              if (name !== 'Sulfuras, Hand of Ragnaros') {
+                quality -= 1;
               }
             }
           } else {
-            item.quality = item.quality - item.quality;
+            quality = quality - quality;
           }
         } else {
-          if (item.quality < 50) {
-            item.quality += 1;
+          if (quality < 50) {
+            quality += 1;
           }
         }
       }
