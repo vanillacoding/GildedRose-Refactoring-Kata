@@ -48,6 +48,9 @@ class Shop {
           }
         }
       }
+
+      this.items[i].sellIn = timeLeft;
+      this.items[i].quality = itemQuality;
     }
 
     return this.items;
