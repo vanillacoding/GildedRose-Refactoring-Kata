@@ -10,12 +10,18 @@ class Shop {
   constructor(items = []) {
     this.items = items;
   }
+
+  checkIsNormalItem(name) {
+    return (
+      name !== 'Aged Brie' &&
+      name !== 'Backstage passes to a TAFKAL80ETC concert' &&
+      name !== 'Sulfuras, Hand of Ragnaros'
+    );
+  }
+
   updateQuality() {
     this.items.map(({ name, quality, sellIn }) => {
-      const isNormalItem =
-        name !== 'Aged Brie' &&
-        name !== 'Backstage passes to a TAFKAL80ETC concert' &&
-        name !== 'Sulfuras, Hand of Ragnaros';
+      const isNormalItem = this.checkIsNormalItem(name);
 
       if (isNormalItem) {
         if (quality > 0) {
