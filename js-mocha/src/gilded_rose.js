@@ -19,15 +19,11 @@ class Shop {
       if (itemName != 'Aged Brie' && itemName != 'Backstage passes to a TAFKAL80ETC concert') {
         itemQuality = this.compareQuality(itemQuality, itemName);
       } else {
-        if (itemQuality < 50) {
-          itemQuality = itemQuality + 1;
-          if (itemName == 'Backstage passes to a TAFKAL80ETC concert') {
-            if (itemSellIn < 11) {
-              itemQuality = this.compareQuality(itemQuality, itemName);
-            }
-            if (itemSellIn < 6) {
-              itemQuality = this.compareQuality(itemQuality, itemName);
-            }
+        const tmpItemQuality = this.compareQuality(itemQuality, itemName);
+        if (itemQuality + 1 === tmpItemQuality) {
+          itemQuality = tmpItemQuality;
+          if (itemName == 'Backstage passes to a TAFKAL80ETC concert' && (itemSellIn < 11 || itemSellIn < 6)) {
+            itemQuality = this.compareQuality(itemQuality, itemName);
           }
         }
       }
