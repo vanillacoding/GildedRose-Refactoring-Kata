@@ -12,12 +12,12 @@ class Shop {
   }
   updateQuality() {
     this.items.map(({ name, quality, sellIn }) => {
-      const isMainItem =
+      const isNormalItem =
         name !== 'Aged Brie' &&
         name !== 'Backstage passes to a TAFKAL80ETC concert' &&
         name !== 'Sulfuras, Hand of Ragnaros';
 
-      if (isMainItem) {
+      if (isNormalItem) {
         if (quality > 0) {
           quality -= 1;
         }
@@ -38,7 +38,7 @@ class Shop {
         sellIn -= 1;
       }
       if (sellIn < 0) {
-        if (isMainItem) {
+        if (isNormalItem) {
           if (quality > 0) {
             quality -= 1;
           }
