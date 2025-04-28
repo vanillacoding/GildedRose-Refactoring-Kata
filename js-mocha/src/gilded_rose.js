@@ -17,24 +17,16 @@ class Shop {
       let itemQuality = this.items[i].quality;
 
       if (itemName != 'Aged Brie' && itemName != 'Backstage passes to a TAFKAL80ETC concert') {
-        if (itemQuality > 0) {
-          if (itemName != 'Sulfuras, Hand of Ragnaros') {
-            itemQuality = itemQuality - 1;
-          }
-        }
+        itemQuality = this.compareQuality(itemQuality, itemName);
       } else {
         if (itemQuality < 50) {
           itemQuality = itemQuality + 1;
           if (itemName == 'Backstage passes to a TAFKAL80ETC concert') {
             if (itemSellIn < 11) {
-              if (itemQuality < 50) {
-                itemQuality = itemQuality + 1;
-              }
+              itemQuality = this.compareQuality(itemQuality, itemName);
             }
             if (itemSellIn < 6) {
-              if (itemQuality < 50) {
-                itemQuality = itemQuality + 1;
-              }
+              itemQuality = this.compareQuality(itemQuality, itemName);
             }
           }
         }
@@ -45,23 +37,27 @@ class Shop {
       if (itemSellIn < 0) {
         if (itemName != 'Aged Brie') {
           if (itemName != 'Backstage passes to a TAFKAL80ETC concert') {
-            if (itemQuality > 0) {
-              if (itemName != 'Sulfuras, Hand of Ragnaros') {
-                itemQuality = itemQuality - 1;
-              }
-            }
+            itemQuality = this.compareQuality(itemQuality, itemName);
           } else {
             itemQuality = itemQuality - itemQuality;
           }
         } else {
-          if (itemQuality < 50) {
-            itemQuality = itemQuality + 1;
-          }
+          itemQuality = this.compareQuality(itemQuality, itemName);
         }
       }
     }
 
     return this.items;
+  }
+  compareQuality(itemQuality, itemName) {
+    if (itemQuality > 0) {
+      if (itemName != 'Sulfuras, Hand of Ragnaros') {
+        itemQuality = itemQuality - 1;
+      }
+    } else if (itemQuality < 50) {
+      itemQuality = itemQuality + 1;
+    }
+    return itemQuality;
   }
 }
 module.exports = {
