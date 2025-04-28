@@ -13,7 +13,7 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
-      const AGED_BRIE = 'Aged Brie';
+      const AGED_BRIE = 'AgedBrie ';
       const BACKSTAGE_TICKET = 'Backstage passes to a TAFKAL80ETC concert';
       const SULFURAS = 'Sulfuras, Hand of Ragnaros';
 
@@ -39,26 +39,18 @@ class Shop {
         item.sellIn = item.sellIn - 1;
       }
       if (item.sellIn < 0) {
-        if (item.name != AGED_BRIE) {
-          if (item.name != BACKSTAGE_TICKET) {
-            if (item.quality > 0) {
-              if (item.name != SULFURAS) {
-                item.quality = item.quality - 1;
-              }
-            }
-          } else {
-            item.quality = 0;
-          }
-        } else {
+        if (item.name === AGED_BRIE) {
           increaseQuality(item);
+        } else if (item.name === BACKSTAGE_TICKET) {
+          item.quality = 0;
+        } else if (item.name !== SULFURAS && item.quality > 0) {
+          decreaseQuality(item);
         }
       }
     }
-
     return this.items;
   }
 }
-
 
 function increaseQuality(item) {
   if (item.quality < 50) {
