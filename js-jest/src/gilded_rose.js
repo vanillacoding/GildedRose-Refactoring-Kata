@@ -42,7 +42,7 @@ class Shop {
               quality -= 1;
             }
           } else {
-            quality = quality - quality;
+            quality = 0;
           }
         } else {
           if (quality < 50) {
