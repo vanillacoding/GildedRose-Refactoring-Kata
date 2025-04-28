@@ -22,8 +22,13 @@ class Shop {
         const tmpItemQuality = this.compareQuality(itemQuality, itemName);
         if (itemQuality + 1 === tmpItemQuality) {
           itemQuality = tmpItemQuality;
-          if (itemName == 'Backstage passes to a TAFKAL80ETC concert' && (itemSellIn < 11 || itemSellIn < 6)) {
-            itemQuality = this.compareQuality(itemQuality, itemName);
+          if (itemName == 'Backstage passes to a TAFKAL80ETC concert') {
+            if (itemSellIn < 11) {
+              itemQuality = this.compareQuality(itemQuality, itemName);
+            }
+            if (itemSellIn < 6) {
+              itemQuality = this.compareQuality(itemQuality, itemName);
+            }
           }
         }
       }
