@@ -43,7 +43,7 @@ class Shop {
 
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
-      const item = item;
+      const item = items[i];
       const itemName = item.name;
 
       if (itemNotBelongToAgedBrie(itemName) && itemName != 'Backstage passes to a TAFKAL80ETC concert') {
