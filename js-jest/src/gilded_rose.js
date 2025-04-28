@@ -38,10 +38,8 @@ class Shop {
       if (sellIn < 0) {
         if (name !== 'Aged Brie') {
           if (name !== 'Backstage passes to a TAFKAL80ETC concert') {
-            if (quality > 0) {
-              if (name !== 'Sulfuras, Hand of Ragnaros') {
-                quality -= 1;
-              }
+            if (quality > 0 && name !== 'Sulfuras, Hand of Ragnaros') {
+              quality -= 1;
             }
           } else {
             quality = quality - quality;
