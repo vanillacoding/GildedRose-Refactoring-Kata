@@ -17,9 +17,9 @@ class Shop {
     this.items.map((item) => {
       item.sellIn -= 1;
 
-      if (item.name === 'Aged Brie') {
+      if (item.name === "Aged Brie") {
         this.updateAgedBrie(item);
-      } else if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
+      } else if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
         this.updateBackstagePass(item);
       } else {
         this.updateGeneralItem(item);
