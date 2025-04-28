@@ -14,9 +14,10 @@ class Shop {
     this.items.map(({ name, quality, sellIn }) => {
       if (
         name !== 'Aged Brie' &&
-        name !== 'Backstage passes to a TAFKAL80ETC concert'
+        name !== 'Backstage passes to a TAFKAL80ETC concert' &&
+        name !== 'Sulfuras, Hand of Ragnaros'
       ) {
-        if (quality > 0 && name !== 'Sulfuras, Hand of Ragnaros') {
+        if (quality > 0) {
           quality -= 1;
         }
       } else {
